@@ -15,7 +15,7 @@ To run this project, you need to follow these steps
 
 To get the updated code
 ```bash
-   git pull origin master (t)
+   git pull origin master
 ```
 Setup the environment
 ```bash
