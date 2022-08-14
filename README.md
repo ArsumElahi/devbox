@@ -1,29 +1,43 @@
-# L1 Challenge Devbox
 
-## Summary
+## Legal One Coding Challenge
 
-- Dockerfile & Docker-compose setup with PHP8.1 and MySQL
-- Symfony 5.4 installation with a /healthz endpoint and a test for it
-- After the image is started the app will run on port 9002 on localhost. You can try the existing
-  endpoint: http://localhost:9002/healthz
-- The default database is called `database` and the username and password are `root` and `root`
-  respectively
-- Makefile with some basic commands
 
-## Installation
+I completed the challenge but didn't  find the end date. I discovered four parameters 
+where I only received one date parameter, and I used that parameter as the start date.
+I implement the api in accordance with the provided api.yaml file; the url for the 
+api is  http://localhost:9002/api/count and the arguments are what you provided.
+## Deployment
 
+I use the logs.txt file that you provided, which I put in the public folder under 
+the name inputfile.txt, and I import the logs using that file.
+
+To run this project, you need to follow these steps
+
+To get the updated code
+```bash
+   git pull origin master (t)
 ```
-  make run && make install
+Setup the environment
+```bash
+   docker compose up  
+```
+Install the dependencies
+
+```bash
+   composer install 
 ```
 
-## Run commands inside the container
+Run the Migration
 
+```bash
+   php bin/console doctrine:database:create
 ```
-  make enter
+```bash
+   php bin/console doctrine:migrations:migrate
 ```
+ 
+ Run the user defined command to import the file into database
 
-## Run tests
-
-```
-  make test
+```bash
+    php bin/console log:dump-log-file
 ```
